@@ -24,17 +24,25 @@ int GetNumber(string message)
 }
 
 int num = GetNumber("Введите число: ");
-int n_trans=0;
+int n_end = 0, n_start = 2;
 
-if (num % 2 == 0)
+if (num % 2 == 0 && num > 0)
 {
-    n_trans = num;
+    n_end = num;
 }
-else
+else if (num > 0)
 {
-    n_trans = num - 1;
+    n_end = num - 1;
 }
-for (int i = 2; i <= n_trans; i += 2)
+else if (num % 2 == 0 && num < 0)
+{
+    n_start = num;
+}
+else if (num < 0)
+{
+    n_start = num+1;
+}
+for (int i = n_start; i <= n_end; i += 2)
 {
     Console.Write($" {i} ");
 }
